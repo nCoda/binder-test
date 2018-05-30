@@ -1,2 +1,3 @@
 abjad>=2.21
-abjad-ext-ipython
+git+https://github.com/abjad/abjad-ext-ipython
+
