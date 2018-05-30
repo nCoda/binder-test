@@ -1,1 +1,2 @@
-abjad==2.21
+abjad>=2.21
+abjad-ext-ipython
