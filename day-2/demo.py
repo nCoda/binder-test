@@ -1,6 +1,8 @@
 import abjad
 from presentation import *
 
+def rotate(l, n):
+    return l[-n:] + l[:-n]
 
 ### PRE ###
 
@@ -24,15 +26,15 @@ def show_demo():
         tie_specifier=tie_specifier,
         )
     divisions = [(3, 8), (5, 4), (1, 4), (13, 16)]
-    score = Score()
+    score = abjad.Score()
     for i in range(8):
         selections = talea_rhythm_maker(divisions, rotation=i)
         voice = abjad.Voice(selections)
         staff = abjad.Staff([voice], context_name='RhythmicStaff')
         score.append(staff)
-        divisions = sequencetools.rotate_sequence(divisions, 1)
+        divisions = rotate(divisions, 1)
     lilypond_file = make_sketch_lilypond_file(score)
-    show(lilypond_file)
+    abjad.show(lilypond_file)
 
 #show_demo()
 
@@ -120,9 +122,6 @@ sketch = make_sketch(talea_rhythm_maker, divisions)
 
 
 ### EXAMPLE THREE ###
-
-def rotate(l, n):
-    return l[-n:] + l[:-n]
 
 score = abjad.Score()
 for i in range(12):
