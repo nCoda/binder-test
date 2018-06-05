@@ -1,0 +1,4 @@
+git clone --depth 1 --branch=master https://github.com/abjad/intensive.git intensive
+rm -rf intensive/.git
+mv intensive/* .
+rmdir intensive
